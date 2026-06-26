@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# .NET
+*.user
+*.suo
+project.lock.json
+artifacts/
+
+# Rider / VS / VS Code
+.idea/
+.vs/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log

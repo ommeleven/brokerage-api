@@ -1,0 +1,30 @@
+using System;
+
+namespace BrokerApi.Models;
+
+public class Account
+{
+    public string Id { get; set; }
+    public string OwnerName { get; private set; }
+    public decimal Balance { get; private set; }
+    public bool isOverDrawn => Balance < 0;
+    
+    public decimal _credtLimit;
+    public decimal CredtLimit
+    {
+        get => _credtLimit;
+        set
+        {
+            if (value < 0) throw new ArgumentException("Credit Limit cannot be negative.");
+            _credtLimit = value;
+        }
+    }
+
+    public Account(string id, string ownerName)
+    {
+        Id = id;
+        OwnerName = ownerName;
+        Balance = 0M;
+    }
+
+}
