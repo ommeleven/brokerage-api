@@ -3,8 +3,8 @@ namespace Brokerage.Core.Models;
 public class Account
 {
     public string Id { get; set; }
-    public string OwnerName { get; private set; }
-    public decimal Balance { get; private set; }
+    public string OwnerName { get;  set; }
+    public decimal Balance { get;  set; }
     public bool isOverDrawn => Balance < 0;
     
     public decimal _credtLimit;
