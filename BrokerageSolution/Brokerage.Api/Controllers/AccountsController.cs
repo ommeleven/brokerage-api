@@ -1,6 +1,5 @@
 using Brokerage.Core.Models;
 using Brokerage.Services;
-using Brokerage.Data;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Brokerage.Api.Controllers;
@@ -9,7 +8,12 @@ namespace Brokerage.Api.Controllers;
 [Route("api/[controller]")]
 public class AccountsController : ControllerBase
 {
-    private readonly AccountService _service = new (new AccountStore());
+    private readonly AccountService _service;
+
+    public AccountsController(AccountService service)
+    {
+        _service = service;
+    }
 
     [HttpGet]
     public IEnumerable<Account> GetAll() => _service.GetAllAccounts();

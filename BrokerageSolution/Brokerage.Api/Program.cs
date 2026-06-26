@@ -1,3 +1,7 @@
+using Brokerage.Data;
+using Brokerage.Services;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddSingleton<AccountStore>();
+builder.Services.AddScoped<AccountService>();
 
 var app = builder.Build();
 
